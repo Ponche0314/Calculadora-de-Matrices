@@ -3,26 +3,26 @@
 
 using namespace std;
 
-int opci髇 = 0, m = 0, n = 0;
+int opci贸n = 0, m = 0, n = 0;
 
 int main() {
 
-	setlocale(LC_CTYPE, "Spanish"); // Nos permite el uso de los acentos y car醕teres del idioma espa駉l.
+	setlocale(LC_CTYPE, "Spanish"); // Nos permite el uso de los acentos y car谩cteres del idioma espa帽ol.
 
-	cout << "ienvenido a la aplicaci髇 CALCULADORA DE MATRICES!\n\n";
+	cout << "隆Bienvenido a la aplicaci贸n CALCULADORA DE MATRICES!\n\n";
 
 	cout << "Seleccione una de las siguientes:\n\n";
 
 	cout << "OPERACIONES CON MATRICES:\n\n";
 	cout << "1. Suma (a + b).\n";
 	cout << "2. Resta (a + (-b)).\n";
-	cout << "3. Multiplicaci髇 por un escalar.\n";
-	cout << "4. Multiplicaci髇 entre matrices.\n";
+	cout << "3. Multiplicaci贸n de una matriz por un escalar.\n";
+	cout << "4. Multiplicaci贸n entre matrices.\n";
 
-	cout << "\nDigite una opci髇: ";
-	cin >> opci髇;
+	cout << "\nDigite una opci贸n: ";
+	cin >> opci贸n;
 
-	switch (opci髇) {
+	switch (opci贸n) {
 
 		case 1:{
 
@@ -56,7 +56,7 @@ int main() {
 				}
 			}
 
-			// A馻dir las dos matrices.
+			// A帽adir las dos matrices.
 			for (int i = 0; i < m; i++) {
 				for (int j = 0; j < n; j++) {
 					suma[i][j] = a[i][j] + b[i][j];
@@ -115,7 +115,7 @@ int main() {
 			}
 
 
-			// A馻dir las dos matrices.
+			// A帽adir las dos matrices.
 			for (int i = 0; i < m; i++) {
 				for (int j = 0; j < n; j++) {
 					resta[i][j] = a[i][j] + b[i][j];
@@ -135,6 +135,52 @@ int main() {
 				}
 			}
 			break;
+		}
+
+		case 3: {
+
+			int a[100][100], result[100][100], factor;
+
+			cout << "Escriba la cantidad de renglones (entre 1 y 100): ";
+			cin >> m;
+
+			cout << "Escriba la cantidad de columnas (entre 1 y 100): ";
+			cin >> n;
+
+			// Guardar elementos de la matriz.
+			cout << endl << "Introduzca los elementos de la matriz: " << endl;
+			for (int i = 0; i < m; i++) {
+				for (int j = 0; j < n; j++)
+				{
+					cout << "Digite el elemento a" << i + 1 << j + 1 << " : ";
+					cin >> a[i][j];
+				}
+			}
+
+			cout << endl << "Escriba el factor escalar por el que quiere multiplicar la matriz: ";
+			cin >> factor;
+
+			// Multiplcar por el factor escalar.
+			for (int i = 0; i < m; i++) {
+				for (int j = 0; j < n; j++) {
+					result[i][j] = result[i][j] * factor;
+				}
+			}
+
+			// Mostrar la matriz resultante.
+			cout << endl << "La matriz resultante es: " << endl;
+			for (int i = 0; i < m; i++) {
+				for (int j = 0; j < n; j++)
+				{
+					cout << result[i][j] << "  ";
+
+					if (j == n - 1) {
+						cout << endl;
+					}
+				}
+			}
+			break;
+
 		}
 
 		case 4: {
@@ -202,7 +248,7 @@ int main() {
 				}
 			}
 
-			// Multiplicaci髇 de matriz a y b y guard醤dolo en mult.
+			// Multiplicaci贸n de matriz a y b y guard谩ndolo en mult.
 			for (i = 0; i < r1; i++) {
 				for (j = 0; j < c2; j++) {
 					for (k = 0; k < c1; k++) {
